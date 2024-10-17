@@ -10,9 +10,13 @@ folder (attribution: [grouplens.org](https://grouplens.org/datasets/movielens/10
 
 The similarity scores are calculated using cosine similarity. The file
 `similar_movies_core.py` demonstrates the process using **RDDs** and 
-`similar_movies_sql.py` uses **DataFrames**. The SparkSQL example is much faster
-but the Spark Core example is included for demonstration and to act as
-a reference.
+`similar_movies_sql.py` uses **DataFrames**. The SparkSQL example is a more
+typical implementation (and much faster) but the Spark Core example is included for demonstration and to act as a reference.
+
+The scripts can be executed by passing them to `spark-submit`. They can 
+accept a single optional argument of a movie id (from the `u.item` file), 
+otherwise they default to "The Wizard of Oz".
+Eg: `spark-submit similar_movies_sql.py 172` ("The Empire Strikes Back")
 
 Note 1: Both scripts are meant to run on a _local_ development/test environment.
 When run on a cluster, some adjustments would need to be made as well as some possible 

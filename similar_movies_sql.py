@@ -103,7 +103,7 @@ else:
 # Filter for movies matching the id and meeting above thresholds
 filteredResults = moviePairSimilarities.filter(
     ((F.col("movie1") == movieID) | (F.col("movie2") == movieID))
-    & (F.col("score") > scoreThreshold) & (F.col("numPairs") > coOccurrenceThreshold)
+    & (F.col("score") > SCORE) & (F.col("numPairs") > CO_OCCURRENCE)
 )
 
 # Sort by quality score & get top 10
